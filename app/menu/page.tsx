@@ -24,7 +24,8 @@ export default function MenuPage() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/products')
+                const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+                const response = await fetch(`${apiUrl}/products`)
                 const data = await response.json()
                 setProducts(data)
             } catch (error) {

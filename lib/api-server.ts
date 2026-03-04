@@ -22,10 +22,12 @@ export async function fetchApi(endpoint: string, options: RequestInit = {}) {
 
     if (!response.ok) {
         let errorMsg = 'API request failed'
-        try {
-            const error = await response.json()
-            errorMsg = error.error || errorMsg
-        } catch (e) {
+        const contentType = response.headers.get("content-type")
+        if (contentType && contentType.includes("application/json")) {
+            try {
+                const error = await response.json()
+                errorMsg = error.error || errorMsg
+            } catch (e) {}
         }
         throw new Error(errorMsg)
     }

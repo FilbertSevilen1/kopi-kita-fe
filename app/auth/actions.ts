@@ -42,8 +42,15 @@ export async function login(formData: FormData) {
     })
 
     if (!response.ok) {
-      const errorData = await response.json()
-      return { error: errorData.error || 'Login failed' }
+      let error = 'Login failed'
+      const contentType = response.headers.get("content-type")
+      if (contentType && contentType.includes("application/json")) {
+          try {
+              const errorData = await response.json()
+              error = errorData.error || error
+          } catch (e) {}
+      }
+      return { error }
     }
 
     const { session } = await response.json()
@@ -76,8 +83,15 @@ export async function signup(formData: FormData) {
     })
 
     if (!response.ok) {
-      const errorData = await response.json()
-      return { error: errorData.error || 'Registration failed' }
+      let error = 'Registration failed'
+      const contentType = response.headers.get("content-type")
+      if (contentType && contentType.includes("application/json")) {
+          try {
+              const errorData = await response.json()
+              error = errorData.error || error
+          } catch (e) {}
+      }
+      return { error }
     }
 
     return { success: true, message: 'Account created! Please check your email to confirm.' }
@@ -98,8 +112,15 @@ export async function resendConfirmationEmail(email: string) {
     })
 
     if (!response.ok) {
-      const errorData = await response.json()
-      return { error: errorData.error || 'Failed to resend email' }
+      let error = 'Failed to resend email'
+      const contentType = response.headers.get("content-type")
+      if (contentType && contentType.includes("application/json")) {
+          try {
+              const errorData = await response.json()
+              error = errorData.error || error
+          } catch (e) {}
+      }
+      return { error }
     }
 
     return { success: true, message: 'Confirmation email resent! Please check your inbox.' }

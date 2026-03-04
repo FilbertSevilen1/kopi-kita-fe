@@ -81,6 +81,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                     const result = await logout()
                                     if (result.success) {
                                         router.push(result.redirectTo)
+                                        router.refresh()
                                     }
                                 }}
                             >
