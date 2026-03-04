@@ -96,10 +96,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                     <div className="absolute top-[-10%] right-[-5%] w-[1000px] h-[1000px] bg-primary/5 blur-[250px] rounded-full pointer-events-none animate-pulse" />
 
                     <header className="h-16 border-b border-white/10 flex items-center justify-between px-8 bg-background/60 backdrop-blur-2xl z-10">
-                        <div className="flex items-center gap-4">
-                            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
-                            <span className="text-sm font-black uppercase text-foreground/70">Sistem Operasional</span>
-                        </div>
                         <div className="flex items-center gap-8">
                             <div className="text-sm font-black uppercase text-foreground/60">
                                 {new Date().toLocaleDateString('id-ID', { weekday: 'long', month: 'short', day: 'numeric' })}

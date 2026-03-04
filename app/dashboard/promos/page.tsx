@@ -8,7 +8,12 @@ import { fetchApi } from '@/lib/api-server'
 import { Database } from 'lucide-react'
 
 export default async function PromoIdeasPage() {
-    const promos = await fetchApi('/promos')
+    let promos: any[] = []
+    try {
+        promos = await fetchApi('/promos')
+    } catch (e) {
+        // Backend error - render empty state
+    }
 
     return (
         <div className="space-y-12">

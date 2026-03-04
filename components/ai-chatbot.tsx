@@ -35,7 +35,7 @@ export function AIChatbot() {
             const response = await chatWithAI(userMessage, messages)
             setMessages(prev => [...prev, { role: 'model', content: response }])
         } catch (error) {
-            setMessages(prev => [...prev, { role: 'model', content: "Protocol interruption. Re-initialize transmission?" }])
+            setMessages(prev => [...prev, { role: 'model', content: "Maaf, Asisten Mimi tidak mengerti, silakan coba lagi." }])
         } finally {
             setLoading(false)
         }
@@ -48,8 +48,7 @@ export function AIChatbot() {
                     onClick={() => setIsOpen(true)}
                     className="w-20 h-20 rounded-[2rem] bg-primary hover:bg-primary/80 shadow-[0_20px_50px_rgba(var(--primary),0.3)] p-0 border-none transition-all hover:scale-105 active:scale-95 group"
                 >
-                    <BrainCircuit className="w-8 h-8 text-background transition-transform group-hover:rotate-12" />
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-4 border-background animate-pulse" />
+                    <BrainCircuit className="w-8 h-8 text-background transition-transform" />
                 </Button>
             ) : (
                 <Card className="w-[400px] h-[600px] border-white/10 bg-background/90 backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.8)] rounded-[2rem] flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-700">
@@ -60,9 +59,6 @@ export function AIChatbot() {
                             </div>
                             <div className="space-y-0.5">
                                 <CardTitle className="text-sm font-black tracking-tight text-foreground uppercase">Asisten Mimi</CardTitle>
-                                <div className="text-[10px] font-black uppercase text-emerald-500 flex items-center gap-1.5">
-                                    <span className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" /> Sistem Aktif
-                                </div>
                             </div>
                         </div>
                         <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="w-10 h-10 rounded-xl hover:bg-white/10 hover:text-primary transition-all">

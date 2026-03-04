@@ -13,7 +13,12 @@ export default async function CustomersPage({
     searchParams: Promise<{ query?: string }>
 }) {
     const query = (await searchParams).query || ''
-    const customers = await fetchApi(`/customers?query=${query}`)
+    let customers: any[] = []
+    try {
+        customers = await fetchApi(`/customers?query=${query}`)
+    } catch (e) {
+        // Backend error - render empty state
+    }
 
     return (
         <div className="space-y-12">
