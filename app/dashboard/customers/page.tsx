@@ -32,15 +32,6 @@ export default async function CustomersPage({
                     <p className="text-foreground/60 font-bold tracking-tight text-sm">Mengkurasi komunitas pecinta kopi terbaik.</p>
                 </div>
                 <div className="flex items-center gap-4">
-                    <form action={resetCustomers}>
-                        <Button
-                            variant="outline"
-                            type="submit"
-                            className="h-12 px-6 rounded-xl border-white/5 bg-white/[0.02] text-foreground/60 hover:text-destructive hover:bg-destructive/10 transition-all font-black uppercase text-[10px] gap-2"
-                        >
-                            <RotateCcw className="w-4 h-4" /> Reset Daftar
-                        </Button>
-                    </form>
                     <AddCustomerDialog />
                 </div>
             </div>
