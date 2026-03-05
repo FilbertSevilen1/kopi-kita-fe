@@ -30,8 +30,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                                 <Coffee className="w-5 h-5 text-primary group-hover:text-background transition-colors" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-lg font-black tracking-tight uppercase leading-none">Mimi</span>
-                                <span className="text-[13px] font-black uppercase text-primary">Spesialis</span>
+                                <span className="text-lg font-black tracking-tight uppercase leading-none">Admin Dashboard</span>
                             </div>
                         </Link>
                     </div>
@@ -67,13 +66,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
                     <div className="p-4 mt-auto">
                         <div className="p-4 rounded-2xl bg-white/[0.05] border border-white/10 space-y-3">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-primary/40 border border-white/20" />
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-black uppercase tracking-tight text-foreground">Pengelola Mimi</span>
-                                    <span className="text-[13px] font-bold uppercase text-primary">Terotorisasi</span>
-                                </div>
-                            </div>
                             <Button
                                 variant="ghost"
                                 className="w-full justify-start gap-3 text-sm font-black uppercase text-foreground/60 hover:text-destructive hover:bg-destructive/10 rounded-xl transition-all h-10"
